@@ -1,0 +1,9 @@
+Pomelo.EntityFrameworkCore.MySql --version 9.0.0-preview.2.efcore.9.0.0
+Microsoft.AspNetCore.Authentication.JwtBearer --version 9.0.3
+Microsoft.EntityFrameworkCore --version 9.0.3
+Microsoft.EntityFrameworkCore.SqlServer --version 9.0.3
+Microsoft.EntityFrameworkCore.Tools --version 9.0.3
+MySql.Data --version 9.2.0
+MySql.EntityFrameworkCore --version 9.0.0
+Scalar.AspNetCore --version 2.1.2
+System.IdentityModel.Tokens.Jwt --version 8.7.0

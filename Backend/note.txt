@@ -1,0 +1,3 @@
+MYSQL required
+create gymtrackdb schema from file gymtrackdb.sql
+change username and password for mysql connection if required
