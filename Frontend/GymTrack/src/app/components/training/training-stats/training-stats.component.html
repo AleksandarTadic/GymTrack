@@ -1,0 +1,31 @@
+<div class="wrapper">
+    <div>
+        <div >   
+            <label for="yearMonth">Available Month - Year:</label> 
+            <select id="yearMonth" [(ngModel)]="selectedYearMonth" (change)="onChange($event)">
+                <option selected disabled> Select an option</option>
+                <option *ngFor="let item of organizedItemsWeeks  | keyvalue" [value]="item.key">{{item.key}}</option>
+            </select>
+        </div>
+    </div>
+    <div>
+
+    <div class="div-panel" *ngIf="selectedYearMonth !== ''">
+        <div *ngFor="let w of weeks">
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header >
+              <mat-panel-title> Week: {{w['week']}} </mat-panel-title>
+              <mat-panel-description> Weekly stats </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>Total Burned Calories: {{w['weeklyCaloriesBurned']}}</p>
+            <p>Total Duration: {{w['weeklyDuration']}} Minutes</p>
+            <p>Total Number of Trainings: {{w['weeklyTrainingNumber']}}</p>
+            <p>Total Workout Intensity: {{w['weeklyworkoutIntensity']}} / 10</p>
+            <p>Total Workout Fatigue: {{w['weeklyworkoutFatigue']}} / 10</p>
+        </mat-expansion-panel>
+        </div>
+    </div>
+    <div class="div-panel" *ngIf="selectedYearMonth === ''">
+        <h1>Select month / year</h1>
+    </div>
+</div>

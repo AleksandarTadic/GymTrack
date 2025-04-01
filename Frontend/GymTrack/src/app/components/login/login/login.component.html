@@ -1,0 +1,56 @@
+<link href="login.component.scss" rel="stylesheet">
+
+<section class="h-auto gradient-forme">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-white bg-dark bg-gradient ">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-2">
+  
+                  <div class="text-center">
+                    <img src="./assets/images/normal/logo.png"
+                      style="width: 185px;" alt="logo">
+                    <h4 class="mt-1 mb-5 pb-1">Gym Track</h4>
+                  </div>
+  
+                  <form class="needs-validation" action="" [formGroup]="form" (submit)="login()">
+                    <p>Login to your account</p>
+
+                    <div class="form-floating mb-4 text-black">
+                      <input type="username" id="username" class="form-control" placeholder="Username" formControlName="username" required/>
+                      <label class="form-label" for="username">Username</label>
+                    </div>
+  
+                    <div class="form-floating mb-4 text-black">
+                      <input type="password" id="password" class="form-control" placeholder="Password" formControlName="password" required/>
+                      <label class="form-label" for="password">Password</label>
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-center pb-4 invalid-feedback" *ngIf="form.controls['username'].hasError('required') || form.controls['password'].hasError('required') || error != '' ">
+                      <p class="mb-0 me-2 text-danger" style="min-height: 30px; border-radius: 5px; background-color: pink; text-align: center; padding: 10px;">{{error}}</p>
+                    </div>
+                    <!-- <div class="invalid-feedback" *ngIf="loginForm.controls['password'].hasError('required')"> -->
+
+                    <div class="d-flex align-items-center justify-content-center mb-4">
+                        <button type="submit" class="btn btn-outline-danger mb-4">Log in</button>
+                    </div>
+                  </form>
+  
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2 justify-content-center">
+              <!-- <div class="col-lg-6 d-flex align-items-center gradient-custom-2" style="background-image: url(./assets/images/night_city.jpg); object-fit: contain; background-repeat: no-repeat; "> -->
+                <!-- <img src="./assets/images/city.jpg" alt="img" class="object-fit-cover " style="height: 700px;"> -->
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4">Don't have an account?</h4>
+                  <button routerLink="/register" type="button" class="btn btn-outline-light me-2 d-flex justify-content-center">Create new</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

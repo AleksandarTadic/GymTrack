@@ -1,0 +1,46 @@
+<link href="main-menu.component.scss" rel="stylesheet">
+
+
+<header class="p-3 fixed-top text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a routerLink="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <!-- Dodati logo sliku -->
+          <img src="./assets/images/small/logo_small.png" width="40" height="32">
+          <!-- <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg> -->
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+          <li><a routerLink="/" class="nav-link px-2 text-secondary">Home</a></li>
+          <li *ngIf="isLoggedIn()"><a  routerLink="/my-trainings" class="nav-link px-2 text-white">My Trainings</a></li>
+          <li *ngIf="isLoggedIn()"><a  routerLink="/training-stats" class="nav-link px-2 text-white">My Statistics</a></li>
+        </ul>
+
+
+        <div class="text-end" *ngIf="!isLoggedIn()">
+          <button type="button" class="btn btn-outline-light me-2" routerLink="login">Log in</button>
+          <button type="button" class="btn btn-danger" routerLink="register">Sign-up</button>
+        </div>
+        <div class="text-end" *ngIf="isAdmin()">
+          <button type="button" class="btn btn-danger me-2" routerLink="/exercise-types">Exercise Types*</button>
+        </div>
+        <div class="text-end" *ngIf="isLoggedIn()">
+            <button type="button" class="btn btn-outline-light me-2" (click)="logout()" routerLink="/">Logout</button>
+        </div>
+
+        <!-- <div class="dropdown text-end" *ngIf="isLoggedIn()">
+          <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="./assets/images/small/avatar_white_small.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" routerLink="/">Admin panel</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" routerLink="/">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" (click)="logout()" routerLink="/">Sign out</a></li>
+          </ul>
+        </div> -->
+      </div>
+    </div>
+  </header>

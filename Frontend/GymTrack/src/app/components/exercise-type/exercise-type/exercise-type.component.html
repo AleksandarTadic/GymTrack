@@ -1,0 +1,36 @@
+<div class="wrapper">
+    <mat-form-field class="search">
+        <input matInput #search (keyup)="applyFilter(search.value)" placeholder="Search">
+    </mat-form-field>
+    <div id="table">
+      <h1>Exercise Types</h1>
+      <button class="button" mat-button routerLink="/exercise-type-form">Add new</button>
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        
+    
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Exercise Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef> Actions </th>
+              <td mat-cell *matCellDef="let element"> <button class="button" mat-button (click) = "deleteRow(element)">Delete</button> &nbsp; <a class="link" mat-button routerLink="/exercise-type-form/{{element.id}}">Update</a> </td>
+            </ng-container>
+        
+            <tr class="red" mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr class="red" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>

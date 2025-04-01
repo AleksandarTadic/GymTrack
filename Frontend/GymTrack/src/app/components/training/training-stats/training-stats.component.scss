@@ -1,0 +1,52 @@
+.wrapper {
+    position: absolute;
+    top: 160px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 400px;
+    
+}
+.wrapper div {
+    padding: 20px;
+    width: 100%;
+    box-shadow: none;
+    margin: none;
+}
+
+.wrapper div div {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.wrapper div div label {
+    width: 20%;
+}
+.wrapper div div p {
+    width: 100%;
+}
+
+.wrapper div div select {
+    width: 100%;
+    margin-left: 10px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+.div-panel {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+mat-expansion-panel {
+    width: 100%;
+}
+

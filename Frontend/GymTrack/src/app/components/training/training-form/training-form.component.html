@@ -1,0 +1,85 @@
+<div class="wrapper">
+    <form class="forma" action=""  [formGroup]="forma">
+        <div *ngIf="currentId != null">
+            <h1>Update Training</h1>
+        </div>
+        <div *ngIf="currentId == null">
+            <h1>Add Training</h1>
+        </div>
+        <div *ngIf="currentId != null">
+            <label for="id">ID: </label> 
+            <p>{{training.id}}</p>
+        </div>
+        <div >   
+            <label for="exerciseType">Exercise Type:</label> 
+            <select formControlName="exerciseTypeId" required>
+                <option selected disabled> Select an option</option>
+                <option *ngFor="let exerciseType of exerciseTypes" [selected]="isSelectedExerciseType(exerciseType.id)" [value]="exerciseType.id">{{exerciseType.name}}</option>
+                <!-- <option *ngFor="let drzava of drzave" [selected]="isSelected(drzava.id)" [value]="drzava.id">{{drzava.naziv}}</option> -->
+            </select>
+        </div>
+
+        <div>
+            <label for="trainingDate">Training datetime:</label> 
+            <mat-form-field>
+                <mat-label>Training date and start time</mat-label>
+                <input  matInput type="datetime-local"  formControlName="trainingDate" required/>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <label for="duration">Training duration:</label> 
+            <mat-form-field class="example-full-width">
+                <mat-label>Duration</mat-label>
+                <input matInput type="number" [min]="1" placeholder="Minutes" value="1" formControlName="duration" required>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <label for="caloriesBurned">Calories burned:</label> 
+            <mat-form-field class="example-full-width">
+                <mat-label>Calories burned</mat-label>
+                <input matInput type="number" [min]="1" placeholder="Calories burned" value="1" formControlName="caloriesBurned" required>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <label for="workoutIntensity">Workout Intensity:</label> 
+            <mat-form-field class="example-full-width">
+                <mat-label>Workout Intensity</mat-label>
+                <input matInput type="number" [min]="1" [max]="10" placeholder="Workout Intensity" value="1" formControlName="workoutIntensity" required>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <label for="fatigue">fatigue:</label> 
+            <mat-form-field class="example-full-width">
+                <mat-label>Fatigue</mat-label>
+                <input matInput type="number" [min]="1" [max]="10" placeholder="Fatigue" value="1" formControlName="fatigue" required>
+            </mat-form-field>
+        </div>
+        <div>
+            <label for="notes">Notes:</label> 
+            <mat-form-field class="example-full-width">
+                <mat-label>Notes</mat-label>
+                <textarea matInput  placeholder="notes" value="1" formControlName="notes"></textarea>
+            </mat-form-field>
+        </div>
+
+
+        <div>
+            <p class="error" *ngIf="!forma?.valid">{{forma.errors ? forma.errors['msg'] : ""}}</p>
+        </div>
+        <div>
+            <div *ngIf="currentId != null">
+                <button class="button" type="button" [disabled]="!forma.valid" (click)="submit()">Update</button>
+            </div>
+            <div *ngIf="currentId == null">
+                <button class="button" type="button" [disabled]="!forma.valid" (click)="submit()">Add</button>
+            </div>
+            <div>
+                <button class="button" (click)="reset()">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>

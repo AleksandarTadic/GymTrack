@@ -1,0 +1,42 @@
+<div class="wrapper">
+    <form class="form" action=""  [formGroup]="form">
+        <div *ngIf="currentId != null">
+            <h1>Update Exercise Type</h1>
+        </div>
+        <div *ngIf="currentId == null">
+            <h1>Add Exercise Type</h1>
+        </div>
+        <div *ngIf="currentId != null">
+            <label for="naziv">ID: </label> 
+            <p>{{exerciseType.id}}</p>
+            <!-- <p *ngIf="!forma.get('ime')?.valid">{{forma.get('ime')?.errors|json}}</p> -->
+        </div>
+        <div>
+            <label for="name">Exercise Name:</label> 
+            <input type="name" name="name" id="name" formControlName="name" placeholder="Exercise name" required>
+            <!-- <p *ngIf="!forma.get('ime')?.valid">{{forma.get('ime')?.errors|json}}</p> -->
+        </div>
+
+        <div>
+            <label for="description">Exercise Description:</label> 
+            <input type="description" name="description" id="description" formControlName="description" placeholder="Exercise description">
+            <!-- <p *ngIf="!forma.get('ime')?.valid">{{forma.get('ime')?.errors|json}}</p> -->
+        </div>
+
+        <!-- ispravan nacin za prikazivanje poruka verovatno se moze i css namestiti za pojedine stvari -->
+        <div>
+            <p class="error" *ngIf="!form?.valid">{{form.errors ? form.errors['msg'] : ""}}</p>
+        </div>
+        <div>
+            <div *ngIf="currentId != null">
+                <button class="button" type="button" [disabled]="!form.valid" (click)="submit()">Update</button>
+            </div>
+            <div *ngIf="currentId == null">
+                <button class="button" type="button" [disabled]="!form.valid" (click)="submit()">Add</button>
+            </div>
+            <div>
+                <button class="button" (click)="reset()">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>
